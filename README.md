@@ -1,6 +1,6 @@
 ### A very basic implementation of Reservoir that can learn chaotic systems
 
-## To run you need to have following:
+## To run you need to have the following installed in your working python environment:
 1. Numpy 
 2. [Jitcode](https://github.com/neurophysik/jitcode) 
 
