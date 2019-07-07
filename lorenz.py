@@ -15,7 +15,7 @@ import os
 import sys
 
 # adding current directory path to the system's path
-THIS_DIR = os.path.dirname(os.path.abspath(__file__)) + '/rossler'
+THIS_DIR = os.path.dirname(os.path.abspath(__file__)) + '/lorenz'
 sys.path.append(THIS_DIR)
 
 import Reservoir as res
@@ -27,15 +27,15 @@ def get_args():
     parser = argparse.ArgumentParser(description=None)
     parser.add_argument('--res_size', default=500, type=int,
                         help='Size of the reservoir')
-    parser.add_argument('--leaky_rate', default=0.6, type=float,
+    parser.add_argument('--leaky_rate', default=0.7, type=float,
                         help='leaky rate for the reservoir')
     parser.add_argument('--spectral_radius', default=0.7, type=float,
                         help='spectral radius of the reservoir')
     parser.add_argument('--res_density', default=0.4, type=float,
                         help='reservoir density')
-    parser.add_argument('--input_density', default=0.5, type=float,
+    parser.add_argument('--input_density', default=0.4, type=float,
                         help='input-to-reservoir connection density')
-    parser.add_argument('--inputScaling_radius', default=0.05, type=float,
+    parser.add_argument('--inputScaling_radius', default=0.4, type=float,
                         help='standard variation of input weights')
     parser.add_argument('--random_seed', default=None, type=int,
                         help='random seed initialization for repeatability')
@@ -43,7 +43,7 @@ def get_args():
                         help='where to save the trained data or figures')
     parser.add_argument('--train_data_ratio', default=0.7, type=float,
                         help='what percentage of training time is needed')
-    parser.add_argument('--trans_ratio', default=0.2, type=float,
+    parser.add_argument('--trans_ratio', default=0.35, type=float,
                         help='transience time fraction of total time')
     parser.add_argument('--beta', default=1e-07, type=float,
                         help='regularization coefficient')
@@ -61,11 +61,11 @@ def getData(train_data_ratio, trans_ratio):
 
         Returns: (train_data, test_data)
     '''
-    # Lorenz equation for motion
+    # Rossler equation for motion
     f = [
-        -y(1) - y(2),
-        y(0) + 0.2 * y(1),
-        0.2 + (y(0) - 7.0) * y(2)
+        10 * (y(1) - y(0)),
+        y(0) * (28 - y(2)) - y(1),
+        y(0) * y(1) - (8.0 / 3) * y(2)
     ]
 
     inital_state = 2.0 * (1 - 2 * np.random.random(3))
@@ -131,7 +131,7 @@ if __name__ == "__main__":
     fig1 = plt.figure(2)
     ax1 = fig1.add_subplot(111, projection='3d')
     ax1.set_title('Learned Attarctor')
-    ax1.plot(outputs[:, 0], outputs[:, 1], outputs[:, 2])
+    ax1.plot(outputs[:, 0], outputs[:, 1], outputs[:, 2], '.b')
     ax1.set_xlabel('X')
     ax1.set_ylabel('Y')
     ax1.set_zlabel('Z')
