@@ -3,6 +3,7 @@
 ### To run you need to have the following installed in your working python environment:
 1. Numpy 
 2. [Jitcode](https://github.com/neurophysik/jitcode) 
+3. [NetworkX](https://networkx.github.io/)
 
 ### Example(Rossler Attractor): 
 
