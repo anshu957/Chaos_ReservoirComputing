@@ -1,10 +1,10 @@
 '''
-File: rossler.py
+File: lorenz.py
 File Created: Sunday, 7th July 2019 10:25:02
 Author: well-well-well
 -----------------------------------------------------------
 Description: This script trains the reservoir for chaotic
-             Rossler oscillator
+             lorenz oscillator
 ------------------------------------------------------------
 '''
 
