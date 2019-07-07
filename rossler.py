@@ -116,11 +116,7 @@ if __name__ == "__main__":
     label1 = 'trajectories'
     path1 = '{}/{}.dat'.format(args.save_dir, label1)
 
-    label2 = 'nodes_states'
-    path2 = '{}/{}.dat'.format(args.save_dir, label2)
-
     np.savetxt(path1, outputs, delimiter='\t')
-    np.savetxt(path2, res_states, delimiter='\t')
 
     # plotting the data
     fig = plt.figure(1)
