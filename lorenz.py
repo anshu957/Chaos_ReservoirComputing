@@ -61,7 +61,7 @@ def getData(train_data_ratio, trans_ratio):
 
         Returns: (train_data, test_data)
     '''
-    # Rossler equation for motion
+    # Lorenz equation for motion
     f = [
         10 * (y(1) - y(0)),
         y(0) * (28 - y(2)) - y(1),
