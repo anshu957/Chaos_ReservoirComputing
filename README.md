@@ -6,7 +6,7 @@
 
 ## Example(Rossler Attractor): 
 
-1. --> python3 rossler.py 
+1. __To run__:  python3 rossler.py 
 2. --> Command line arguments can be given. For complete list of arguments, see
 **rossler.py**
 3. --> Warning: Parameters, leaky_rate and inputScaling_radius is quite sensitive for reasons currently unknown to me. Avoid changing them! 
